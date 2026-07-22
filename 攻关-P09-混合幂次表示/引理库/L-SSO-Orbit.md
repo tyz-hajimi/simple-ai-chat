@@ -191,7 +191,7 @@ $$
 $$
 \max_{1\le k\le K}\mathfrak{S}(n-2^k)\gg 1
 $$
-（或 $\gg\eta_0$）。**注意：** 这仍弱于目标 SS-Sync 的 $(\log n)^{-c}$ 量级表述，且依赖 LS；**不**推出 SS-Sync，更**不**推出原猜想。
+（或 $\gg\eta_0$）。**注意：** 本条依赖 LS+AP，且只阻断固定 $\eta_0$-极小长段。SS-Sync 形 $\max\mathfrak{S}\gg(\log n)^{-c}$ 的框架证明与平均下界见 **R11 / L-Floor**（不依赖 LS）；**不**推出原猜想。
 
 ---
 
@@ -202,10 +202,12 @@ $$
 | SSO-G1 | Tail-Weil：一致 $\|\sigma_p-1\|\ll p^{-1-\delta}$ | L-SSO-2(B) 定量 |
 | SSO-G2 | LS：坏类比例 $\le 1-\kappa$ 对大 $p$ 一致 | L-SSO-5 的输入 |
 | SSO-G3 | 极小 $\Rightarrow$ 有限素集上局部坏的有效鸽笼（无「无限多素各损一点」逃逸） | 强化 G-SS |
-| SSO-G4 | 由 $\max\mathfrak{S}\gg 1$ 升至 $\max\mathfrak{S}\gg(\log n)^{-c}$ | 接近 SS-Sync |
+| SSO-G4 | 由 $\max\mathfrak{S}\gg 1$ 升至 $\max\mathfrak{S}\gg(\log n)^{-c}$ | **R11 / L-Floor-1/2 已闭合**（框架：SSO-2(A)+SS-1）；见 `L-Floor.md` |
 | SSO-G5 | SS-阈值（同 L-Ekill-SS-2）：$\mathfrak{S}(m)\ge(\log m)^{-A}\Rightarrow m\in\mathcal{R}_{4,3,2}$ | 对接 E-kill；**R5 改写为 Thr-G1**（$\mathrm{H}_{\mathrm{thr}}$）+ 已证 L-Thr-3，见 `L-Thr.md` |
 
-**明确非声称.** 本文件不证明 SS-Sync，不证明 $\mathcal{F}_0$ 有限，不证明原猜想。
+**R11 更新.** SSO-G4 的框架闭合不蕴含 E-kill（仍缺 SSO-G5 / $\mathrm{H}_{\mathrm{thr}}$）。无一致积尾时见 L-Floor-7/8 条件式备份。
+
+**明确非声称.** 本文件不证明 $\mathcal{F}_0$ 有限，不证明原猜想；SS-Sync 陈述形的框架证明见 L-Floor（非本文件）。
 
 ---
 
@@ -219,4 +221,4 @@ $$
 | L-SSO-3 | 窗口 = 二进乘法轨道采样 | 已证 |
 | L-SSO-4 | 单素坏类不能盖住长于轨道坏弧的连续段 | 已证 |
 | L-SSO-5 | G-SS：连续 $\ge c\log n$ 极小 $\Rightarrow$ 与 LS 冲突 | 条件式 |
-| L-SSO-6 | 缺口 SSO-G1–G5 | 缺口 |
+| L-SSO-6 | 缺口 SSO-G1–G5（G4→L-Floor） | 缺口（部分移交） |
