@@ -1,13 +1,14 @@
 # L-Floor：奇异级数轨道地板（R11-SS-Floor-Orbit）
 
 > 路线 **R11-SS-Floor-Orbit**（P09 攻关轮次 11；对抗审查 R10 §6 建议；服务 **P1 / SSO-G4**）。  
+> **R13-Floor-Audit（轮次13）：** L-Floor-1/2 原「SSO-2(A)+SS-1 $\Rightarrow\inf\mathfrak{S}\ge c>0$」**论证否证**；SSO-G4 **开放**；主路改挂 L-Floor-7/8 或 Tail-Weil 下 1♯。详见 `对抗审查/R13-Floor-Audit.md`。  
 > 专攻：把 L-SSO-5 的弱结论 $\max_k\mathfrak{S}(n-2^k)\gg 1$ 提升到 SS-Sync 形
 > $$
 > \max_k\mathfrak{S}(n-2^k)\gg(\log n)^{-c},
 > $$
-> 方法：**截断 Euler 积的一致地板**、**二进轨道上的对数平均**、以及（条件式）**大素处等分布 / Mean-Log**。  
+> 方法：**条件式积尾 / Mean-Log / Soft-AP**（原「截断 Euler 积一致地板」已降级）。  
 > 与次弧阈值 $\mathrm{H}_{\mathrm{thr}}$ **脱钩**：本文件只产出 $\mathfrak{S}$-地板，不声称可表。  
-> 状态严格区分：**已证** / **条件式** / **缺口**。原猜想未证。
+> 状态严格区分：**已证** / **条件式** / **否证·降级** / **缺口**。原猜想未证。
 
 ---
 
