@@ -203,7 +203,7 @@ $$
 | SSO-G2 | LS：坏类比例 $\le 1-\kappa$ 对大 $p$ 一致 | L-SSO-5 的输入 |
 | SSO-G3 | 极小 $\Rightarrow$ 有限素集上局部坏的有效鸽笼（无「无限多素各损一点」逃逸） | 强化 G-SS |
 | SSO-G4 | 由 $\max\mathfrak{S}\gg 1$ 升至 $\max\mathfrak{S}\gg(\log n)^{-c}$ | 接近 SS-Sync |
-| SSO-G5 | SS-阈值（同 L-Ekill-SS-2）：$\mathfrak{S}(m)\ge(\log m)^{-A}\Rightarrow m\in\mathcal{R}_{4,3,2}$ | 对接 E-kill |
+| SSO-G5 | SS-阈值（同 L-Ekill-SS-2）：$\mathfrak{S}(m)\ge(\log m)^{-A}\Rightarrow m\in\mathcal{R}_{4,3,2}$ | 对接 E-kill；**R5 改写为 Thr-G1**（$\mathrm{H}_{\mathrm{thr}}$）+ 已证 L-Thr-3，见 `L-Thr.md` |
 
 **明确非声称.** 本文件不证明 SS-Sync，不证明 $\mathcal{F}_0$ 有限，不证明原猜想。
 

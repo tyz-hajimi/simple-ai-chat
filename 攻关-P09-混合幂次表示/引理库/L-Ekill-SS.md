@@ -17,4 +17,5 @@ $$
 \max_{1\le k\le K/2}\mathfrak{S}(N-2^k)\ll_A(\log N)^{-A}.
 $$
 
-**缺口.** 圆法阈值：奇异级数对数下界 $\Rightarrow$ 可表。
+**缺口.** 圆法阈值：奇异级数对数下界 $\Rightarrow$ 可表。  
+**R5 改写.** 该前置在假设 $\mathrm{H}_{\mathrm{thr}}(A)$ 下由 **L-Thr-3**（已证蕴含）给出；主弧半边见 **L-Thr-1**（已证）。全阈值仍开放（Thr-G1）。详见 `L-Thr.md`。
