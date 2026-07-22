@@ -65,25 +65,26 @@ $$
 
 ---
 
-## L-Dec-2（已证）— 三线性 Hölder + VMVT（全环面）
+## L-Dec-2（已证：全环面；次弧为区域限制推论）— 三线性 Hölder + 分幂 VMVT
 
 对任意 $\varepsilon>0$，
 $$
 \int_0^1|f_4 f_3 f_2|\,\mathrm{d}\alpha
 \ll_\varepsilon N^{13/24+\varepsilon}.
 $$
-特别地，对任意 $Q$，
+**推论（非次弧增益）.** 对任意 $Q$，由被积非负得
 $$
 \int_{\mathfrak{m}(Q)}|f_4 f_3 f_2|\,\mathrm{d}\alpha
-\ll_\varepsilon N^{13/24+\varepsilon}.
+\ll_\varepsilon N^{13/24+\varepsilon}；
 $$
+此式**不**使用 $\alpha\in\mathfrak{m}$ 的 Diophantine 信息，亦**不**声称截断临界矩优于全环面（R4 对抗审查：需降级「含次弧已证改进」叙事）。
 
 **证明.** 取 Hölder 指数 $(u,v,w)=(20,12,15/13)$（因 $1/20+1/12+13/15=1$）。则
 $$
 \int|f_4 f_3 f_2|
 \le\|f_4\|_{20}\|f_3\|_{12}\|f_2\|_{15/13}.
 $$
-由 L-Dec-1 的 VMVT 特例：
+由 L-Dec-1 的 VMVT 特例（分幂均值，非双线性 decoupling）：
 $$
 \|f_4\|_{20}=\bigl(J_{10,4}(P_4)\bigr)^{1/20}\ll_\varepsilon P_4^{1/2+\varepsilon}=N^{1/8+\varepsilon},
 $$
@@ -94,7 +95,7 @@ $$
 $$
 N^{1/8+1/6+1/4+\varepsilon}=N^{3/24+4/24+6/24+\varepsilon}=N^{13/24+\varepsilon}.
 $$
-限制到 $\mathfrak{m}(Q)$ 只减小积分区域。证毕。
+证毕。
 
 **对照.** $13/24=\beta/2$：本界恰为凸性指数的平方根尺度，是「临界矩 + Hölder」方法族的自然终点。
 
@@ -196,7 +197,7 @@ $$
 | 编号 | 摘要 | 状态 |
 |------|------|------|
 | L-Dec-1 | $\int|f_4 f_3|^{15/2}\ll N^{35/16+\varepsilon}$ | 已证（引 BDG/VMVT） |
-| L-Dec-2 | $\int|f_4 f_3 f_2|\ll N^{13/24+\varepsilon}$（含次弧） | 已证 |
+| L-Dec-2 | $\int|f_4 f_3 f_2|\ll N^{13/24+\varepsilon}$（全环面；次弧仅限制） | 已证（R4 降级标签） |
 | L-Dec-3 | Weyl–VMVT 凸族；最优端点即 L-Dec-2 | 已证 |
 | L-Dec-4 | 拼合后指数 $13/24$，距 $1/12$ 差 $11/24$ | 已证（结算） |
 | L-Dec-5 | Gauss $L^q$（$q\ge 2$）插值不改进 $13/24$ | 已证 |
