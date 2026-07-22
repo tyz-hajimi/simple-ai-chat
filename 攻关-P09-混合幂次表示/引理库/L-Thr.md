@@ -267,7 +267,7 @@ $$
 |----------|------|----------|
 | **Thr-G1** | $\mathrm{H}_{\mathrm{thr}}(A)$（任固定 $A$，或等价 $\mathrm{H}_{\mathrm{thr}}^{\mathrm{abs}}$） | L-Thr-3 $\Rightarrow$ SS-阈值 |
 | Thr-G2 | 主弧误差中 $\theta_0,\delta_0$ 的显式可发表常数（可选加固） | 有效 $m_0(A)$；形式追踪见 **R8 / L-Eff-1…5**（$N_0(\delta,A)$）；数值级属 Eff-G1 |
-| Thr-G3 | 将 L-SSO-5 的 $\gg 1$ 升至 $(\log)^{-c}$（= SSO-G4）后与 $\mathrm{H}_{\mathrm{thr}}(c)$ 拼合 | **G4 框架已由 L-Floor-2 闭合**；拼合仍待 Thr-G1 |
+| Thr-G3 | 将 L-SSO-5 的 $\gg 1$ 升至 $(\log)^{-c}$（= SSO-G4）后与 $\mathrm{H}_{\mathrm{thr}}(c)$ 拼合 | **G4 开放**（R13 否证 L-Floor-1/2）；主路 L-Floor-7/8；拼合仍待 Thr-G1 |
 | Thr-G4 | 真实 $E$ 上验证 LS+AP（SSO-G1–G3） | 经 L-Thr-4b 得 $\mathcal{F}_0$ 有限 |
 
 **明确非声称.**

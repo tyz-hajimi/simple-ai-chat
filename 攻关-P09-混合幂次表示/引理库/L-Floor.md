@@ -31,66 +31,59 @@ $$
 
 ---
 
-## L-Floor-1（已证）— 截断 Euler 积的一致正地板
+## L-Floor-1（否证原证 / 条件式）— 截断 Euler 积的一致正地板
 
-**假设.** L-SSO-2(A)（奇异级数 Euler 积对 $m$ **一致**绝对收敛）与 L-Ekill-SS-1（$\sigma_p(m)\ge p^{-2}$）。
+> **R13-Floor-Audit.** 原「已证（框架：SSO-2(A)+SS-1）」**论证否证**；陈述降级为条件式（需 Tail-Weil）。详见 `对抗审查/R13-Floor-Audit.md`。
 
-取 $\varepsilon=1/2$。由 L-SSO-2(A) 存在绝对常数 $P_\ast=P_{1/2}<\infty$（不依赖 $m$）使
-$$
-\sup_m\lvert T_{P_\ast}(m)-1\rvert\le\tfrac12.
-$$
-对一切 $m$，
-$$
-\mathfrak{S}_{\le P_\ast}(m)
-=\prod_{p\le P_\ast}\sigma_p(m)
-\ge\prod_{p\le P_\ast}p^{-2}
-=\exp\bigl(-2\,\theta(P_\ast)\bigr),
-$$
-其中 $\theta(x)=\sum_{p\le x}\log p\le C_\theta P_\ast$（Chebyshev）。故
+### （R11 原声称 — 已否证）
+
+**原假设.** L-SSO-2(A)+SS-1。原结论 $\inf_m\mathfrak{S}(m)\ge c_{\mathfrak{S}}>0$。
+
+**崩点.**
+
+1. SS-1 只给 $\sigma_p\ge p^{-2}$；无限最坏积 $\prod_p p^{-2}$ 发散到 $0$，不能单独给一致正地板。  
+2. 截断逃生依赖 $\sup_m|T_{P_\ast}-1|\le 1/2$；L-SSO-2(A) 由 $13/12>1$ 宣称一致绝对收敛——对混合幂 **不成立**（Weyl 仅 $|A(q)|\ll q^{-1/12+\varepsilon}$，$\sum|A|$ 发散；见 R13 §3）。  
+3. 若大素上存在固定 $c_0$-坏类，CRT 可使截断积任意小；与「一致积尾」合取得 $\inf\mathfrak{S}=0$（R13 §2）。
+
+### （条件式复活 L-Floor-1♯）
+
+**假设 Tail-Weil**（L-SSO-2(B)）：$|\sigma_p(m)-1|\le C p^{-1-\delta}$ 对一切 $m$、$p\notin\mathfrak{B}$。取 $P_\ast$ 使 $p>P_\ast\Rightarrow\sigma_p\ge 1/2$。再由 SS-1，
 $$
 \mathfrak{S}(m)
 =\mathfrak{S}_{\le P_\ast}(m)\,T_{P_\ast}(m)
-\ge\exp\bigl(-2\,\theta(P_\ast)\bigr)\cdot\tfrac12.
+\ge
+\Bigl(\prod_{p\le P_\ast}p^{-2}\Bigr)\cdot\tfrac12
+=\tfrac12\exp\bigl(-2\,\theta(P_\ast)\bigr)=:c_{\mathfrak{S}}>0.
 $$
-令
+故
 $$
-c_{\mathfrak{S}}
-:=\tfrac12\exp\bigl(-2\,\theta(P_\ast)\bigr)>0
+\inf_m\mathfrak{S}(m)\ge c_{\mathfrak{S}}.
 $$
-（绝对正常数）。则
-$$
-\inf_{m\in\mathbb{Z}}\mathfrak{S}(m)\ge c_{\mathfrak{S}}.
-$$
+**状态.** 条件式（前置 = Tail-Weil）；**不**再标 SSO-2(A)+SS-1 已证。
 
-**证明.** 上列不等式链即证。证毕。
+### 可证替代（无一致地板）
 
-**备注.**
-
-1. 此界来自「固定截断高度 + 一致积尾 + 逐素 $p^{-2}$」，**不**需 LS、AP、Tail-Weil、等分布。  
-2. 常数 $c_{\mathfrak{S}}$ 可能极小（随 $P_\ast$ 指数衰减），但对一切固定 $A$ 仍有 $c_{\mathfrak{S}}\ge(\log m)^{-A}$（$m$ 充分大）——恰够喂 L-Thr-3 / SS-2 的对数门槛。  
-3. 若撤回 L-SSO-2(A) 的**一致性**，本条失效；改走 L-Floor-5/7/8。
+- **平均：** $\mathbb{E}_{m\le X}\log\mathfrak{S}\ge -C\log\log\log X$（弱 ML）或 $\ge -C_0$（强 ML）；见 R13 §5.1。  
+- **概率：** $\frac1X\#\{m\le X:\mathfrak{S}(m)\ge(\log X)^{-c}\}\ge 1-O((\log X)^{-\delta})$；见 R13 §5.2。  
+- **窗最大：** 走 L-Floor-7/8，**不**走本条无条件形。
 
 ---
 
-## L-Floor-2（已证）— 窗最大地板；SSO-G4 / SS-Sync（框架形）
+## L-Floor-2（否证原证 / 降级）— 窗最大地板；SSO-G4 / SS-Sync
 
-在 L-Floor-1 的同一假设下，对一切 $n\ge 3$，
-$$
-\max_{1\le k\le K}\mathfrak{S}(n-2^k)
-\ge c_{\mathfrak{S}}\gg 1.
-$$
-特别地，对任意固定 $c<\infty$，
-$$
-\max_{1\le k\le K}\mathfrak{S}(n-2^k)
-\gg(\log n)^{-c}.
-$$
-故 **SSO-G4 在 L-SSO-2(A)+SS-1 框架下闭合**；SS-Sync 的陈述形成立。
+> **R13.** 原「SSO-G4 在 SSO-2(A)+SS-1 下闭合」**否证**。SSO-G4 **开放**。
 
-**证明.** 由 L-Floor-1，每个窗点 $\mathfrak{S}(n-2^k)\ge c_{\mathfrak{S}}$，最大元同下界。与 $(\log n)^{-c}\to 0$ 比较即得第二式。证毕。
+### （R11 原声称 — 已否证）
 
-**与 L-SSO-5 的关系.** L-SSO-5 在 LS+AP 下阻断「长段 $\eta_0$-极小」并得弱 $\max\gg 1$；本条以截断积直接给出**逐点**地板，强度不低于 L-SSO-5 的接口，且不依赖 LS/AP。R4 所忧的「多数点 $(\log)^{-C}$-小、一点偶发 $O(1)$」图景与一致地板不相容。
+原由 L-Floor-1 推出 $\max_k\mathfrak{S}(n-2^k)\ge c_{\mathfrak{S}}\gg(\log n)^{-c}$。因 L-Floor-1 原证崩塌，本推论失效。
 
-**明确非声称.** $\mathfrak{S}\ge c_{\mathfrak{S}}$ **不**蕴涵 $m\in\mathcal{R}_{4,3,2}$（缺 $\mathrm{H}_{\mathrm{thr}}$ / 次弧）；对 E-kill 仍须阈值（见 L-Floor-9）。
+### （条件式 / 替代）
+
+- 若 L-Floor-1♯（Tail-Weil）成立，则确有 $\max_k\mathfrak{S}\ge c_{\mathfrak{S}}\gg(\log n)^{-c}$。  
+- **主路：** L-Floor-7（ML+Equi+Tail-Weil）或 L-Floor-8（LS+Soft-AP）$\Rightarrow\max\mathfrak{S}\gg(\log)^{-A}$。  
+- 概率型窗结论见 R13 §5.2（几乎所有 $n$，非一切 $n$）。
+
+**明确非声称.** 即使窗最大地板成立，$\mathfrak{S}\gg(\log)^{-c}$ **不**蕴涵可表（缺 $\mathrm{H}_{\mathrm{thr}}$）；对 E-kill 仍须阈值（L-Floor-9）。
 
 ---
 
@@ -154,50 +147,37 @@ $$
 
 ---
 
-## L-Floor-5（已证）— 窗上对数平均下界（已证平均）
+## L-Floor-5（需降级）— 窗上对数平均下界
 
-在 L-SSO-2(A)+SS-1 下，取 $P_\ast=P_{1/2}$ 如 L-Floor-1。则
-$$
-\mathcal{A}_n(\log\mathfrak{S})
-=\mathcal{A}_n(\log\mathfrak{S}_{\le P_\ast})+\mathcal{A}_n(\log T_{P_\ast})
-\ge -2\,\theta(P_\ast)-\log 2.
-$$
-令 $C_0:=2\theta(P_\ast)+\log 2<\infty$。则对一切充分大 $n$，
-$$
-\mathcal{A}_n(\log\mathfrak{S})\ge -C_0,
-$$
-从而几何平均
-$$
-\exp\bigl(\mathcal{A}_n(\log\mathfrak{S})\bigr)
-=\Bigl(\prod_{k=1}^K\mathfrak{S}(n-2^k)\Bigr)^{1/K}
-\ge e^{-C_0}.
-$$
+> **R13.** 原证使用与 L-Floor-1 同一 $P_\ast$（来自 SSO-2(A) 一致积尾），**同构失效**。平均形本身可作为目标保留，改挂 ML / R13 §5.1。
 
-**推论（已证平均 $\Rightarrow$ 最大）.**
+### （R11 原证 — 已失效）
+
+原在 SSO-2(A)+SS-1 下写 $\mathcal{A}_n(\log\mathfrak{S})\ge -2\theta(P_\ast)-\log 2$ 并得几何平均 $\ge e^{-C_0}$。积尾步骤与 L-Floor-1 相同，R13 否证。
+
+### （可保留的形式结构）
+
+一旦另证 $\mathcal{A}_n(\log\mathfrak{S})\ge -C_0$（例如 L-Floor-7 的 ML+Equi+Tail-Weil，或 R13 替代 A 的弱 ML），则
 $$
 \max_{k\le K}\mathfrak{S}(n-2^k)
 \ge\exp\bigl(\mathcal{A}_n(\log\mathfrak{S})\bigr)
-\ge e^{-C_0}\gg 1.
+\ge e^{-C_0}
 $$
-
-**证明.** L-Floor-3 截断 + 逐项 $\log\mathfrak{S}_{\le P_\ast}\ge -2\theta(P_\ast)$ + $\lvert\log T_{P_\ast}\rvert\le\log 2$。几何平均 $\le$ 最大元。证毕。
-
-**定位.** 本条是「Euler 积在二进轨道上的对数平均」的已证核心；与 L-Floor-1/2 等价量级，但平均形可对接条件式 Mean-Log（L-Floor-7）而不必先取 $\inf_m$。
+仍成立（几何平均 $\le$max）。**状态：** 形式蕴含保留；无条件常数 $C_0$ **未证**。
 
 ---
 
-## L-Floor-6（已证）— 窗上算术平均下界
+## L-Floor-6（需降级）— 窗上算术平均下界
 
-同假设下，由 Jensen（或由 L-Floor-1 逐点）
+> **R13.** 依赖 L-Floor-5 / L-Floor-1，同步降级。
+
+若 L-Floor-5 的平均对数下界以条件式成立，则由 Jensen
 $$
 \mathcal{A}_n(\mathfrak{S})
-=\frac1K\sum_{k=1}^K\mathfrak{S}(n-2^k)
 \ge\exp\bigl(\mathcal{A}_n(\log\mathfrak{S})\bigr)
-\ge e^{-C_0},
+\ge e^{-C_0}.
 $$
-且更直接地 $\mathcal{A}_n(\mathfrak{S})\ge c_{\mathfrak{S}}$。
-
-**证明.** Jensen 于 $\log$ 凹性；或逐点地板平均。证毕。
+逐点形 $\mathcal{A}_n(\mathfrak{S})\ge c_{\mathfrak{S}}$ 仅在 L-Floor-1♯ 下可用。
 
 ---
 
@@ -257,7 +237,7 @@ $$
 $$
 弱型 ML 则 $\sum_{p\le P}(\log p)/p\asymp\log\log P\ll\log\log\log n$。再由几何平均 $\le$max 得点态地板。证毕。
 
-**备注.** 在已有 L-Floor-1 时本条对 SSO-G4 **非必需**；其价值在于：(i) 给出不依赖「最坏 $p^{-2}$ 积」的**平均型常数**；(ii) 当一致性积尾被质疑时，仍可能保住 $(\log)^{-c}$ 地板。
+**备注（R13 升格）.** L-Floor-1/2 原框架已否证后，本条与 L-Floor-8 升为 **SSO-G4 主路**（不再是「有 L-Floor-1 时的备份」）。
 
 ---
 
@@ -294,7 +274,7 @@ $$
 $$
 与「整窗 $K\asymp\log n$ 段皆对数极小」所需的命中量比较；选取 $A,B$ 使二者冲突（或改为：不能覆盖长度 $c\log n$ 的连续段）。证毕。
 
-**与 L-Floor-2 比较.** L-Floor-2 更强且少假设；本条保留为「不引一致积尾」时的条件式备份，并精确实现 R10 建议的拼链形。
+**与 L-Floor-2 比较（R13）.** L-Floor-2 原框架已否证；本条与 L-Floor-7 同为 SSO-G4 存活主路，并精确实现 R10 建议的拼链形。
 
 ---
 
@@ -303,20 +283,20 @@ $$
 ### （A）阈值拼合
 
 若 $\mathrm{H}_{\mathrm{thr}}(A)$ 成立，则由 L-Thr-3：$\mathfrak{S}(m)\ge(\log m)^{-A}\Rightarrow m\in\mathcal{R}_{4,3,2}$。  
-由 L-Floor-2，窗上 $\max\mathfrak{S}\ge c_{\mathfrak{S}}\ge(\log)^{-A}$（$n$ 大），故最大点可表，从而 $n\notin\mathcal{F}_0^{\mathrm{kill}}$。
+若再有窗地板 $\max\mathfrak{S}\gg(\log)^{-A}$（来自 L-Floor-7/8 或 L-Floor-1♯，**非**已否证的原 L-Floor-2），则最大点可表，从而 $n\notin\mathcal{F}_0^{\mathrm{kill}}$。
 
-**推论（条件式，同 L-Thr-4b 的强化版）.**
+**推论（条件式）.**
 $$
-\mathrm{H}_{\mathrm{thr}}(A)
+\mathrm{H}_{\mathrm{thr}}(A)+\bigl[\text{L-Floor-7 或 8 或 }1^\sharp\bigr]
 \ \Longrightarrow\ 
-\mathcal{F}_0^{\mathrm{kill}}\text{ 仅有限}
+\mathcal{F}_0^{\mathrm{kill}}\text{ 仅有限}.
 $$
-（轨道侧改用 L-Floor-2，**不再**需要 LS+AP）。再经 L07 得 $x=0$ 型充分大。
+再经 L07 得 $x=0$ 型充分大。
 
 ### （B）与 SS-2 上界的对撞
 
 L-Ekill-SS-2：在阈值前置下，坏窗满足 $\max\mathfrak{S}\ll_A(\log)^{-A}$。  
-L-Floor-2：$\max\mathfrak{S}\ge c_{\mathfrak{S}}$。二者对撞 $\Rightarrow$ 充分大坏窗不存在（条件于阈值）。
+与 L-Floor-7/8/1♯ 的下界对撞 $\Rightarrow$ 充分大坏窗不存在（条件于阈值 + 地板前置）。
 
 ### （C）R4 降级保留
 
@@ -328,22 +308,23 @@ L-Floor-2：$\max\mathfrak{S}\ge c_{\mathfrak{S}}$。二者对撞 $\Rightarrow$ 
 
 | 缺口代号 | 内容 | 堵住则得 |
 |----------|------|----------|
-| Floor-G0 | （若质疑）L-SSO-2(A) 积尾对 $m$ 的一致性 | L-Floor-1/2 的框架前提 |
+| Floor-G0 | L-SSO-2(A) 积尾一致性（R13：**已否证**由 $13/12>1$ 推出） | 原 L-Floor-1/2 框架前提已崩 |
 | Floor-G1 | ML$_\delta$：大素上 $\mathbb{E}_r\log\sigma_p$ 的幂次负均值 | L-Floor-7 平均型常数 |
 | Floor-G2 | Equi$_2$：二进轨道对 $\log\sigma_p$ 的等分布误差 | 增长截断 $P=(\log n)^{B}$ |
 | Floor-G3 | Soft-AP：对数极小 $\Rightarrow$ 多素局部坏的有效计数 | L-Floor-8（无一致积尾备份） |
 | Floor-G4 | $=\mathrm{Thr}$-G1：$\mathrm{H}_{\mathrm{thr}}$ | 地板 $\Rightarrow$ 可表 / E-kill |
 
-**SSO-G4 状态（本路线）.**  
-- 在 L-SSO-2(A)+SS-1 下：**已闭合**（L-Floor-1/2/5）。  
-- 无一致积尾时：降为条件式 L-Floor-7/8。  
+**SSO-G4 状态（R13 改写）.**  
+- L-SSO-2(A)+SS-1：**不能**闭合（L-Floor-1/2 原证否证）。  
+- **主路：** 条件式 L-Floor-7/8；或 L-Floor-1♯（Tail-Weil）。  
 - 对接 E-kill 仍缺 Floor-G4（$=\mathrm{H}_{\mathrm{thr}}$）。
 
 **明确非声称.**
 
 - 不证明 $\mathrm{H}_{\mathrm{thr}}$、H、原猜想、$\mathcal{F}_0$ 有限（无阈值时）。  
 - 不声称「$\mathfrak{S}\gg 1\Rightarrow m\in\mathcal{R}_{4,3,2}$」无条件成立。  
-- 不改写 L-Ekill-SS-1 的 $p^{-2}$ 证明。
+- 不改写 L-Ekill-SS-1 的 $p^{-2}$ 证明。  
+- **不**声称 $\inf_m\mathfrak{S}\ge c>0$ 已由 SSO-2(A)+SS-1 证明。
 
 ---
 
@@ -351,13 +332,13 @@ L-Floor-2：$\max\mathfrak{S}\ge c_{\mathfrak{S}}$。二者对撞 $\Rightarrow$ 
 
 | 编号 | 摘要 | 状态 |
 |------|------|------|
-| L-Floor-1 | 截断积一致地板 $\inf_m\mathfrak{S}\ge c_{\mathfrak{S}}>0$ | 已证（框架：SSO-2(A)+SS-1） |
-| L-Floor-2 | $\max_k\mathfrak{S}(n-2^k)\gg 1$；SSO-G4 / SS-Sync 形 | 已证（框架） |
-| L-Floor-3 | 窗对数平均 $=\sum_p$ 单素轨道平均 | 已证 |
-| L-Floor-4 | 单素轨道均值 $\ge -O(\log p)$ | 已证 |
-| L-Floor-5 | $\mathcal{A}_n(\log\mathfrak{S})\ge -C_0$；几何平均 $\gg 1$ | 已证（平均下界） |
-| L-Floor-6 | $\mathcal{A}_n(\mathfrak{S})\ge e^{-C_0}$ | 已证（平均下界） |
-| L-Floor-7 | ML+Equi+Tail-Weil $\Rightarrow$ 定量地板 | 条件式 |
-| L-Floor-8 | LS+Soft-AP $\Rightarrow\max\mathfrak{S}\gg(\log)^{-A}$ | 条件式（R10 形） |
-| L-Floor-9 | 对接 Thr/SS-2；无阈值不杀窗 | 已证接口 |
+| L-Floor-1 | 截断积一致地板 $\inf_m\mathfrak{S}\ge c_{\mathfrak{S}}>0$ | **否证（原证）/ 条件式 1♯（Tail-Weil）** |
+| L-Floor-2 | $\max_k\mathfrak{S}(n-2^k)\gg 1$；SSO-G4 / SS-Sync 形 | **否证（原证）/ 降级**；G4 开放 |
+| L-Floor-3 | 窗对数平均 $=\sum_p$ 单素轨道平均 | 已证（分解式；积尾交换仍要条件） |
+| L-Floor-4 | 单素轨道均值 $\ge -O(\log p)$ | 已证（SS-1 逐项） |
+| L-Floor-5 | $\mathcal{A}_n(\log\mathfrak{S})\ge -C_0$；几何平均 $\gg 1$ | **需降级**（改挂 ML） |
+| L-Floor-6 | $\mathcal{A}_n(\mathfrak{S})\ge e^{-C_0}$ | **需降级** |
+| L-Floor-7 | ML+Equi+Tail-Weil $\Rightarrow$ 定量地板 | 条件式（**G4 主路**） |
+| L-Floor-8 | LS+Soft-AP $\Rightarrow\max\mathfrak{S}\gg(\log)^{-A}$ | 条件式（**G4 主路**） |
+| L-Floor-9 | 对接 Thr/SS-2；无阈值不杀窗 | 已证接口（地板侧改挂 7/8/1♯） |
 | L-Floor-10 | 缺口 Floor-G0–G4 | 缺口 |

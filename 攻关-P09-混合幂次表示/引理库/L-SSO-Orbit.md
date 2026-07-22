@@ -46,23 +46,21 @@ $$
 
 ## L-SSO-2（已证 + 标准局部尾假设下的定量）— Euler 积尾控制
 
-### （A）定性控制（已证，在绝对收敛框架下）
+### （A）定性控制（**R13 降级**：不得由 $13/12>1$ 宣称）
 
-设奇异级数 Euler 积对所有 $m$ **绝对收敛**（三项混合幂 $\sum 1/\deg=13/12>1$ 的标准圆法设定），即
+> **R13-Floor-Audit.** 原「$\sum 1/\deg=13/12>1\Rightarrow$ 一致绝对收敛积尾」**否证**。Weyl 仅给 $|A(q)|\ll q^{-1/12+\varepsilon}$，$\sum_q|A(q)|$ 发散；$13/12>1$ 只控制主弧维数，不给 $\sum|A|<\infty$ 或 $\sup_m|T_P-1|\to 0$。一致积尾改挂 **（B）Tail-Weil**。
+
+**条件式陈述（若授予一致绝对收敛）.** 若
 $$
-\sum_p\lvert\sigma_p(m)-1\rvert<\infty
+\sum_p\sup_m\lvert\sigma_p(m)-1\rvert<\infty,
 $$
-对每个 $m$ 成立，且上界对 $m$ 一致（由局部因子的次数型估计保证）。则对任意 $\varepsilon>0$ 存在 $P_\varepsilon$（不依赖 $m$）使
+则对任意 $\varepsilon>0$ 存在 $P_\varepsilon$（不依赖 $m$）使
 $$
 \sup_{m\in\mathbb{Z}}\lvert\log T_{P_\varepsilon}(m)\rvert\le\varepsilon,
 $$
-从而
-$$
-\sup_m\lvert T_{P_\varepsilon}(m)-1\rvert\le 2\varepsilon\quad(\varepsilon\le 1/2).
-$$
-故 $\mathfrak{S}(m)$ 在去掉有限坏模（并截断至 $P_\varepsilon$）后，由周期函数 $\mathfrak{S}_{\le P_\varepsilon}$ 在相对误差 $O(\varepsilon)$ 内决定。
+从而 $\sup_m\lvert T_{P_\varepsilon}(m)-1\rvert\le 2\varepsilon$（$\varepsilon\le 1/2$）。
 
-**证明.** 绝对收敛 $\Rightarrow\sum_p\sup_m\lvert\log\sigma_p(m)\rvert<\infty$（对充分大 $p$ 用 $\lvert\log\sigma_p\rvert\asymp\lvert\sigma_p-1\rvert$）。尾和 $\sum_{p>P}\sup_m\lvert\log\sigma_p(m)\rvert\to 0$（$P\to\infty$）。证毕。
+**状态.** 蕴含箭头在强假设下正确；**前置对混合幂未由圆法维数条件保证**。禁止再写「框架已证（仅因 $13/12>1$）」。
 
 ### （B）可引用的幂次尾（条件式：Weil / 点计）
 
@@ -202,12 +200,12 @@ $$
 | SSO-G1 | Tail-Weil：一致 $\|\sigma_p-1\|\ll p^{-1-\delta}$ | L-SSO-2(B) 定量 |
 | SSO-G2 | LS：坏类比例 $\le 1-\kappa$ 对大 $p$ 一致 | L-SSO-5 的输入 |
 | SSO-G3 | 极小 $\Rightarrow$ 有限素集上局部坏的有效鸽笼（无「无限多素各损一点」逃逸） | 强化 G-SS |
-| SSO-G4 | 由 $\max\mathfrak{S}\gg 1$ 升至 $\max\mathfrak{S}\gg(\log n)^{-c}$ | **R11 / L-Floor-1/2 已闭合**（框架：SSO-2(A)+SS-1）；见 `L-Floor.md` |
+| SSO-G4 | 由 $\max\mathfrak{S}\gg 1$ 升至 $\max\mathfrak{S}\gg(\log n)^{-c}$ | **开放**（R13 否证 L-Floor-1/2 原框架；主路 L-Floor-7/8 或 1♯） |
 | SSO-G5 | SS-阈值（同 L-Ekill-SS-2）：$\mathfrak{S}(m)\ge(\log m)^{-A}\Rightarrow m\in\mathcal{R}_{4,3,2}$ | 对接 E-kill；**R5 改写为 Thr-G1**（$\mathrm{H}_{\mathrm{thr}}$）+ 已证 L-Thr-3，见 `L-Thr.md` |
 
-**R11 更新.** SSO-G4 的框架闭合不蕴含 E-kill（仍缺 SSO-G5 / $\mathrm{H}_{\mathrm{thr}}$）。无一致积尾时见 L-Floor-7/8 条件式备份。
+**R13 更新.** SSO-G4 **未**由 SSO-2(A)+SS-1 闭合（R13-Floor-Audit）。存活路径：L-Floor-7/8 或 Tail-Weil 下的 L-Floor-1♯。仍缺 SSO-G5 / $\mathrm{H}_{\mathrm{thr}}$ 才能 E-kill。
 
-**明确非声称.** 本文件不证明 $\mathcal{F}_0$ 有限，不证明原猜想；SS-Sync 陈述形的框架证明见 L-Floor（非本文件）。
+**明确非声称.** 本文件不证明 $\mathcal{F}_0$ 有限，不证明原猜想；不声称 SS-Sync 已证。
 
 ---
 
@@ -216,9 +214,9 @@ $$
 | 编号 | 摘要 | 状态 |
 |------|------|------|
 | L-SSO-1 | $\mathfrak{S}_{\le P}$ 模 $M_P$ 周期 | 已证 |
-| L-SSO-2(A) | 绝对收敛下积尾一致小 | 已证（框架假设下） |
+| L-SSO-2(A) | 绝对收敛下积尾一致小 | **降级**（R13：不得由 $13/12>1$ 宣称） |
 | L-SSO-2(B) | 幂次尾 $O(P^{-\delta})$ | 条件式（Tail-Weil） |
 | L-SSO-3 | 窗口 = 二进乘法轨道采样 | 已证 |
 | L-SSO-4 | 单素坏类不能盖住长于轨道坏弧的连续段 | 已证 |
 | L-SSO-5 | G-SS：连续 $\ge c\log n$ 极小 $\Rightarrow$ 与 LS 冲突 | 条件式 |
-| L-SSO-6 | 缺口 SSO-G1–G5（G4→L-Floor） | 缺口（部分移交） |
+| L-SSO-6 | 缺口 SSO-G1–G5（G4 **开放**→L-Floor-7/8） | 缺口 |
